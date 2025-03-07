@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    public GameObject carryhandle;
 
     public UnityEvent<int, int> OnHealthChanged;
 
@@ -35,6 +36,9 @@ public class Health : MonoBehaviour
     }
 
     [SerializeField] private int _maxHealth;
+
+    public GameObject AttachmentPoint;
+
     private int _charHealth;
 
     private bool _isDead = false;

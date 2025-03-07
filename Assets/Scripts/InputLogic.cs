@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,6 +41,8 @@ public class InputLogic : MonoBehaviour
     [SerializeField] private Vector2 _throwTiming = new Vector2(1f,5f);
     [SerializeField] private float _throwStrength = 10f;
 
+    [SerializeField] private ObjectContainer _pickupRange;
+
 
     #endregion
 
@@ -71,6 +74,10 @@ public class InputLogic : MonoBehaviour
         _leftClick.Enable();
         _leftClick.performed += LeftClick;
 
+        _rightClick = _playerControls.Player.Rightclick;
+        _rightClick.Enable();
+        _rightClick.performed += RightClick;
+
 
     }
 
@@ -83,8 +90,11 @@ public class InputLogic : MonoBehaviour
         _jump.Disable();
         _jump.performed -= Jump;
 
-        _leftClick = _playerControls.Player.Attack;
         _leftClick.Disable();
+        _leftClick.performed -= LeftClick;
+
+        _rightClick.Disable();
+        _rightClick.performed -= RightClick;
 
 
     }
@@ -138,6 +148,9 @@ public class InputLogic : MonoBehaviour
 
     private void LeftClick(InputAction.CallbackContext context)
     {
+        Debug.Log("Left Click");
+
+
         if (_equipment == null)
             return;
 
@@ -170,6 +183,9 @@ public class InputLogic : MonoBehaviour
 
     private void RightClick(InputAction.CallbackContext context)
     {
+        Debug.Log("Right Click");
+
+
         if (_equipment == null)
             PickUp();
         else
@@ -181,9 +197,27 @@ public class InputLogic : MonoBehaviour
 
     private void PickUp()
     {
-        throw new NotImplementedException();
+        Debug.Log("Attempting pickup");
+        IEquipment savedEquipment = null;
+        foreach (GameObject possiblePickup in _pickupRange.InTheZone)
+        {
+            IEquipment equipment = possiblePickup.GetComponent<IEquipment>();
+            if(equipment != null && savedEquipment == null)
+            {
+                savedEquipment = equipment;
+            }
+        }
+
+        if (savedEquipment != null)
+        {
+            _equipment = savedEquipment;
+            _equipment.EquipItem(_health);
+            Debug.Log("Pickup succesfull!");
+
+        }
     }
 
+    
 
     #endregion
 }
