@@ -72,7 +72,7 @@ public class InputLogic : MonoBehaviour
 
         _leftClick = _playerControls.Player.Attack;
         _leftClick.Enable();
-        _leftClick.performed += LeftClick;
+        _leftClick.canceled += LeftClick;
 
         _rightClick = _playerControls.Player.Rightclick;
         _rightClick.Enable();
@@ -127,10 +127,7 @@ public class InputLogic : MonoBehaviour
         if (_leftClick.IsPressed() && _equipment!= null)
         {
             _throwTimer += Time.deltaTime;
-            if (_throwTimer > _throwTiming.x)
-            {
-                // put UI logic for throwing here
-            }
+           
         }
 
 
@@ -139,7 +136,7 @@ public class InputLogic : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        
     }
 
     #endregion
@@ -173,12 +170,20 @@ public class InputLogic : MonoBehaviour
         _equipment.UseItem();
     }
 
+    public float GetThrowProgression()
+    {
+        return (_throwTimer- _throwTiming.x)/(_throwTiming.y-_throwTiming.x);
+    }
+
     private void ThrowEquippable()
     {
+
         _throwTimer = Mathf.Clamp(_throwTimer, _throwTiming.x, _throwTiming.y);
 
 
         _equipment.Throw(_camera.transform.position, _camera.transform.forward * _throwTimer * _throwStrength);
+        _equipment = null;
+
     }
 
     private void RightClick(InputAction.CallbackContext context)
