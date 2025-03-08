@@ -56,4 +56,9 @@ public class Health : InterestPoint
     {
         CharHealth += health;
     }
+
+    public float GetHealthPercentage()
+    {
+        return (float)_charHealth/ (float)_maxHealth;
+    }
 }
