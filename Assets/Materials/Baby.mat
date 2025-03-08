@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Baby
-  m_Shader: {fileID: -6465566751694194690, guid: 7ded239b4d1088049922806812385d85, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 07b053826ff03834188f445705cb8cc8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -103,6 +103,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaMultiplier: 1
     - _AlphaToMask: 0
+    - _Billboardstrength: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1

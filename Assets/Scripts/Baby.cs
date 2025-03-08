@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
@@ -44,12 +45,21 @@ public class Baby : MonoBehaviour, IEquipment
     {
         if (transform.parent != null)
         {
-            Animator animator = transform.parent.GetComponent<Animator>();
 
-            animator.Play("HP_BabySoothe");
-
-
+            StopAllCoroutines();
+            StartCoroutine(SootheBaby());
 
         }
+    }
+
+    public IEnumerator SootheBaby()
+    {
+        Animator animator = transform.parent.GetComponent<Animator>();
+
+        animator.SetBool("IsSoothing",true);
+
+        yield return new WaitForSeconds(3f);
+        animator.SetBool("IsSoothing", false);
+
     }
 }
