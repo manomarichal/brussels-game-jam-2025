@@ -15,7 +15,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private LayerMask attackableLayers; 
     [SerializeField] private float attackCooldown = 1f;
 
+    [SerializeField] private Health _health;
+
     public UnityEvent OnAttack;
+    public UnityEvent OnHit;
+
+
 
 
     private bool _isFollowing = false;
@@ -37,9 +42,23 @@ public class EnemyController : MonoBehaviour
         {
             Debug.LogError("No object with tag Player found");
         }
+        _health.OnHealthChanged.AddListener(HealthChange);
+
     }
 
 
+    private void HealthChange(int newHealth, int dmgValue)
+    {
+        if (dmgValue > 0)
+        {
+            OnHit?.Invoke();
+        }
+
+        if (newHealth <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
     void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, _player.position);
