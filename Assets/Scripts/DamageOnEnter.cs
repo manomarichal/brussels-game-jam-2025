@@ -6,8 +6,15 @@ public class DamageOnEnter : MonoBehaviour
 
     public bool respawnAtCheckpoint = true;
 
+    public bool enabled = true;
+
     private void OnTriggerEnter(Collider other)
     {
+        if (!enabled)
+        {
+            return;
+        }
+        
         if (other.CompareTag("Player"))
         {
             var health = other.GetComponent<Health>();
