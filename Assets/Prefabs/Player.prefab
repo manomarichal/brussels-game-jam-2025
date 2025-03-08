@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5200878268047295978}
   - component: {fileID: 3418200841066500510}
   - component: {fileID: 6860803772869754804}
+  - component: {fileID: 6722889515592914893}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -175,7 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1c43f0af1d391c40992116ce139acaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carryhandle: {fileID: 6993039445561069293}
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -184,6 +184,20 @@ MonoBehaviour:
       m_Calls: []
   _maxHealth: 20
   AttachmentPoint: {fileID: 6993039445561069293}
+--- !u!114 &6722889515592914893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196185937979371729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f80199319eaaf40bcef47628a85018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 1515716909505280642}
+  characterController: {fileID: 3418200841066500510}
 --- !u!1 &6296261636506956490
 GameObject:
   m_ObjectHideFlags: 0
