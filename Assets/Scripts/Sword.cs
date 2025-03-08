@@ -18,8 +18,12 @@ public class Sword : MonoBehaviour, IEquipment
 
     public void DropItem()
     {
-        transform.parent = null;
+        transform.position += transform.forward * 2;
+
+        transform.SetParent(null);
         _rb.isKinematic = false;
+
+
 
         SetVisual(false);
     }

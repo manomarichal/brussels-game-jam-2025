@@ -1162,6 +1162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baby
       objectReference: {fileID: 0}
+    - target: {fileID: 3948262221580440468, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: _maxHealth
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6696362940779384419, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9856486

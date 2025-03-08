@@ -124,6 +124,9 @@ public class EnemyController : MonoBehaviour
         Collider[] hitObjects = GetTargetsInRange();
         foreach (Collider hit in hitObjects)
         {
+            if (hit.isTrigger)
+                continue;
+
             Health health = hit.GetComponent<Health>();
             if (health != null)
             {
