@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6513615126351857348}
   - component: {fileID: 4207987098482153051}
   - component: {fileID: 5940360836906613849}
-  m_Layer: 6
+  - component: {fileID: 8260144789533650400}
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8260144789533650400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768184784005306683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66ed0ae354dbf342a0de3338e745ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3900247069109500927
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,8 +139,8 @@ GameObject:
   - component: {fileID: 6087303743800173351}
   - component: {fileID: 1933050176636400414}
   - component: {fileID: 8935526363363374180}
-  - component: {fileID: 1669586550114398759}
-  m_Layer: 0
+  - component: {fileID: 6673669786546356195}
+  m_Layer: 7
   m_Name: WalkingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +182,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
-  _maxHealth: 0
+  _maxHealth: 15
   AttachmentPoint: {fileID: 0}
 --- !u!114 &3320688307549954825
 MonoBehaviour:
@@ -193,6 +207,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackCooldown: 2
+  _health: {fileID: 3922320018438710602}
   OnAttack:
     m_PersistentCalls:
       m_Calls:
@@ -206,6 +221,21 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: SkeletonAttack
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1933050176636400414}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SkeletonHit
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!195 &5227160854472847273
@@ -332,7 +362,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &1669586550114398759
+--- !u!136 &6673669786546356195
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,7 +397,7 @@ GameObject:
   - component: {fileID: 5553454179206647991}
   - component: {fileID: 41278952056793933}
   - component: {fileID: 4175085097765478055}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
