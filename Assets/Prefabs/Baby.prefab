@@ -203,7 +203,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
-  _maxHealth: 5
+  _maxHealth: 30
   AttachmentPoint: {fileID: 0}
 --- !u!1 &7989872208920530107
 GameObject:

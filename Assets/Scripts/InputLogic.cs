@@ -126,9 +126,9 @@ public class InputLogic : MonoBehaviour
     {
 
 
-        if (_characterController.isGrounded)
+        if (_characterController.isGrounded && _verticalMovement<0)
             _verticalMovement = 0f;
-        else { _verticalMovement -= _gravity * Time.deltaTime; }
+        else { _verticalMovement += _gravity * Time.deltaTime; }
 
         Vector2 Movement = _move.ReadValue<Vector2>();
         Vector2 Look = _look.ReadValue<Vector2>();
@@ -164,6 +164,8 @@ public class InputLogic : MonoBehaviour
         if(_characterController.isGrounded && _equipment == null)
         {
             _verticalMovement += _characterJumpHeight;
+            Debug.Log("Jump");
+
         }
     }
 
