@@ -4884,7 +4884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6c0e41e7e4b6741883eba458e4fa6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 3
+  interval: 2
 --- !u!1 &6625049697419889402
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,6 +4926,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8293213668639457306}
     m_Modifications:
+    - target: {fileID: 2322526724738330593, guid: 087dafe4b4129ea4f8aae5f59477cb5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424738835074753797, guid: 087dafe4b4129ea4f8aae5f59477cb5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5839587144835064055, guid: 087dafe4b4129ea4f8aae5f59477cb5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7092410883693556634, guid: 087dafe4b4129ea4f8aae5f59477cb5d, type: 3}
       propertyPath: m_Name
       value: CorridorVertical (6)
