@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float _detectionRange = 10f;
     [SerializeField] private LayerMask _obstacleMask;
