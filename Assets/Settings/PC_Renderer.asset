@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: Fog shader
   m_EditorClassIdentifier: 
   m_Active: 1
-  injectionPoint: 600
+  injectionPoint: 450
   fetchColorBuffer: 1
   requirements: 0
   passMaterial: {fileID: 2100000, guid: e7a70c993e7276240a94933e6656d8cb, type: 2}
