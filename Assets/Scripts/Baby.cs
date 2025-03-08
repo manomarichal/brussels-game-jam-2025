@@ -15,11 +15,12 @@ public class Baby : MonoBehaviour, IEquipment
     [SerializeField] private Rigidbody _rb;
 
 
-     private List<InterestPoint> _interestingPoints = new List<InterestPoint>();
+    [SerializeField] private List<InterestPoint> _interestingPoints = new List<InterestPoint>();
 
     private float _boredom = 0;
     [SerializeField] private float _patienceTime = 3f;
 
+    private bool _isStopped;
     private void Start()
     {
         _agent.destination = (transform.position);
@@ -29,7 +30,7 @@ public class Baby : MonoBehaviour, IEquipment
     {
         if (_agent.isActiveAndEnabled && _agent.isOnNavMesh)
         {
-            if (_agent.remainingDistance < 2.5f)
+            if (_isStopped || _agent.remainingDistance < 2.5f)
             {
                 _boredom += Time.deltaTime;
                 if (_boredom > _patienceTime)
@@ -41,16 +42,22 @@ public class Baby : MonoBehaviour, IEquipment
                     {
                         // wander
                         _agent.SetDestination(transform.position + Random.insideUnitSphere * 10f);
+
+                        Debug.Log("Baby wandering");
+
+
                     }
                     else
                     {
                         // investigate
-                        _agent.SetDestination(_interestingPoints[Random.Range(0, _interestingPoints.Count - 1)].gameObject.transform.position);
+                        _agent.SetDestination(_interestingPoints[Random.Range(0, _interestingPoints.Count)].gameObject.transform.position);
+                        Debug.Log("Baby investigating");
+
                     }
-                   Debug.Log("Baby on its way");
 
                 }
-                Debug.Log("Baby getting Bored");
+
+
 
             }
             else
@@ -58,7 +65,7 @@ public class Baby : MonoBehaviour, IEquipment
                 if ((_agent.destination - transform.position).magnitude > 10f)
                 {
                     // if objective is too far, clear
-                    _agent.isStopped = true;
+                    _isStopped = true;
                     Debug.Log("Stopping baby");
 
                 }
@@ -149,7 +156,7 @@ public class Baby : MonoBehaviour, IEquipment
         if (point == null)
             return;
 
-        if (!_interestingPoints.Contains(point))
+        if (_interestingPoints.Contains(point))
             _interestingPoints.Remove(point);
     }
 
