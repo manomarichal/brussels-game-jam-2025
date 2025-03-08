@@ -408,6 +408,12 @@
 }
 
 {
+    "m_SGVersion": 2,
+    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalUnlitSubTarget",
+    "m_ObjectId": "04c08115bcb74593a51dda93c392fde1"
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "06a638ca36674b609787aa270220993e",
@@ -506,8 +512,8 @@
     "m_ObjectId": "123b32cb3abf42e680af0999cdd80931",
     "m_Title": "Allow Rotation",
     "m_Position": {
-        "x": -603.3333740234375,
-        "y": -384.0001220703125
+        "x": -603.3336181640625,
+        "y": -384.0007019042969
     }
 }
 
@@ -784,7 +790,7 @@
     "m_ObjectId": "28450c4c329e423aaf7457b701b44eee",
     "m_Datas": [],
     "m_ActiveSubTarget": {
-        "m_Id": "4fe4eacafabc42f19e7d31fa6e7480f1"
+        "m_Id": "04c08115bcb74593a51dda93c392fde1"
     },
     "m_AllowMaterialOverride": false,
     "m_SurfaceType": 0,
@@ -1128,8 +1134,8 @@
     "m_ObjectId": "4b26b86b1a614a02bf9de6cd12ee3dd8",
     "m_Title": "Aligns the UV space",
     "m_Position": {
-        "x": -2116.0,
-        "y": -384.0001220703125
+        "x": -2115.999755859375,
+        "y": -384.0007019042969
     }
 }
 
@@ -1227,12 +1233,6 @@
         "e32": 0.0,
         "e33": 1.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalSpriteUnlitSubTarget",
-    "m_ObjectId": "4fe4eacafabc42f19e7d31fa6e7480f1"
 }
 
 {
@@ -1658,8 +1658,8 @@
     "m_ObjectId": "9660a6cb20b0427a91c18401296ab4e5",
     "m_Title": "Allow Scaling",
     "m_Position": {
-        "x": -352.0001220703125,
-        "y": -410.0001220703125
+        "x": -352.0,
+        "y": -410.0005798339844
     }
 }
 
@@ -1799,8 +1799,8 @@
     "m_ObjectId": "aa6f7ab77ab74946b21d02c506860fa7",
     "m_Title": "Billboarding BS",
     "m_Position": {
-        "x": -2228.0,
-        "y": -665.3333740234375
+        "x": -2227.999755859375,
+        "y": -665.33349609375
     }
 }
 
@@ -2243,7 +2243,7 @@
     "m_Title": "Billboarding",
     "m_Position": {
         "x": -1559.3333740234375,
-        "y": -384.0001220703125
+        "y": -384.0007019042969
     }
 }
 
@@ -2563,8 +2563,8 @@
     "m_ObjectId": "d8dd78951e784aaa947be4b91feeaa36",
     "m_Title": "Replace with better than",
     "m_Position": {
-        "x": -907.3333740234375,
-        "y": -236.0001220703125
+        "x": -907.3333129882813,
+        "y": -236.000244140625
     }
 }
 
