@@ -803,8 +803,8 @@
     "m_ObjectId": "123b32cb3abf42e680af0999cdd80931",
     "m_Title": "Allow Rotation",
     "m_Position": {
-        "x": -603.333251953125,
-        "y": -383.99993896484377
+        "x": -603.3333740234375,
+        "y": -384.0001220703125
     }
 }
 
@@ -1230,7 +1230,7 @@
     "m_AlphaMode": 0,
     "m_RenderFace": 2,
     "m_AlphaClip": true,
-    "m_CastShadows": true,
+    "m_CastShadows": false,
     "m_ReceiveShadows": true,
     "m_DisableTint": false,
     "m_AdditionalMotionVectorMode": 0,
@@ -1649,8 +1649,8 @@
     "m_ObjectId": "4b26b86b1a614a02bf9de6cd12ee3dd8",
     "m_Title": "Aligns the UV space",
     "m_Position": {
-        "x": -2115.999755859375,
-        "y": -383.99993896484377
+        "x": -2116.0,
+        "y": -384.0001220703125
     }
 }
 
@@ -2573,8 +2573,8 @@
     "m_ObjectId": "9660a6cb20b0427a91c18401296ab4e5",
     "m_Title": "Allow Scaling",
     "m_Position": {
-        "x": -352.0001220703125,
-        "y": -409.99993896484377
+        "x": -352.0,
+        "y": -410.0001220703125
     }
 }
 
@@ -2762,8 +2762,8 @@
     "m_ObjectId": "aa6f7ab77ab74946b21d02c506860fa7",
     "m_Title": "Billboarding BS",
     "m_Position": {
-        "x": -2227.999755859375,
-        "y": -665.333251953125
+        "x": -2228.0,
+        "y": -665.3333740234375
     }
 }
 
@@ -3231,7 +3231,7 @@
     "m_Title": "Billboarding",
     "m_Position": {
         "x": -1559.3333740234375,
-        "y": -383.99993896484377
+        "y": -384.0001220703125
     }
 }
 
@@ -3567,8 +3567,8 @@
     "m_ObjectId": "d8dd78951e784aaa947be4b91feeaa36",
     "m_Title": "Replace with better than",
     "m_Position": {
-        "x": -907.3333129882813,
-        "y": -236.0
+        "x": -907.3333740234375,
+        "y": -236.00006103515626
     }
 }
 

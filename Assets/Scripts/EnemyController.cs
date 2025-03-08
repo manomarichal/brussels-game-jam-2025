@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float _detectionRange = 10f;
     [SerializeField] private LayerMask _obstacleMask;
+
 
     [Header("Attack settings")]
     [SerializeField] private Vector3 attackBoxSize = new Vector3(2f, 2f, 2f); 
@@ -12,6 +14,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int attackDamage = 10;
     [SerializeField] private LayerMask attackableLayers; 
     [SerializeField] private float attackCooldown = 1f;
+
+    public UnityEvent OnAttack;
+
 
     private bool _isFollowing = false;
     private Transform _player;
@@ -100,8 +105,13 @@ public class EnemyController : MonoBehaviour
         Collider[] hitObjects = GetTargetsInRange();
         foreach (Collider hit in hitObjects)
         {
-            return;
+            Health health = hit.GetComponent<Health>();
+            if (health != null)
+            {
+                health.HealthDamaged(attackDamage);
+            }
         }
+        OnAttack?.Invoke();
 
     }
 
