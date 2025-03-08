@@ -10,13 +10,11 @@ public class DamageOnEnter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!enabled)
+        if (!enabled || other.isTrigger)
         {
             return;
         }
-        
-        if (other.CompareTag("Player"))
-        {
+     
             var health = other.GetComponent<Health>();
 
             if (health != null)
@@ -29,6 +27,5 @@ public class DamageOnEnter : MonoBehaviour
                 var respawnAtCheckpoint = other.GetComponent<RespawnAtCheckpoint>();
                 respawnAtCheckpoint.Respawn();
             }
-        }
     }
 }
