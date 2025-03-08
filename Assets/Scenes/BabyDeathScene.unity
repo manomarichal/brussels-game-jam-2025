@@ -655,7 +655,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 56c558f601ef0c84fb84b69afd7b99de, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 731635f1a34268941a66f2f14c909f05, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &440317412
 Transform:
@@ -773,6 +773,7 @@ GameObject:
   - component: {fileID: 681979548}
   - component: {fileID: 681979547}
   - component: {fileID: 681979546}
+  - component: {fileID: 681979550}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -866,6 +867,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &681979550
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681979545}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!4 &699551268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1707937628152539849, guid: b70c3f35d65123049ac0026374ac95f4, type: 3}
