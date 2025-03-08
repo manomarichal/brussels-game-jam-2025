@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 public class Health : InterestPoint
 {
-    public GameObject carryhandle;
 
     public UnityEvent<int, int> OnHealthChanged;
 
