@@ -31,10 +31,9 @@ public class Baby : MonoBehaviour, IEquipment
     public void Throw(Vector3 position, Vector3 Direction)
     {
         transform.SetParent(null);
-        transform.position = position + Direction.normalized;
+        transform.position = position + Direction.normalized*2;
 
 
-        _agent.enabled = true;
         _rb.isKinematic = false;
 
         _rb.AddForce(Direction, ForceMode.Impulse);
@@ -62,4 +61,12 @@ public class Baby : MonoBehaviour, IEquipment
         animator.SetBool("IsSoothing", false);
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(transform.parent ==null)
+            _agent.enabled = true;
+
+    }
+
 }
