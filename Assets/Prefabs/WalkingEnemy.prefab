@@ -74,6 +74,13 @@ MonoBehaviour:
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 1
+  attackBoxSize: {x: 2, y: 2, z: 2}
+  attackBoxOffset: {x: 0, y: 0, z: 1}
+  attackDamage: 10
+  attackableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  attackCooldown: 2
 --- !u!114 &4966157811780755669
 MonoBehaviour:
   m_ObjectHideFlags: 0
