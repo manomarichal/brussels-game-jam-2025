@@ -93,8 +93,11 @@ public class Sword : MonoBehaviour, IEquipment
         Collider[] hitObjects = GetTargetsInRange();
         foreach (Collider hit in hitObjects)
         {
+            if (hit.isTrigger)
+                continue;
+
             if (hit.gameObject == transform.parent.gameObject)
-                return;
+                continue;
 
             Health health = hit.GetComponent<Health>();
             if (health != null)

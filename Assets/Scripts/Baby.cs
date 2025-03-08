@@ -162,7 +162,7 @@ public class Baby : MonoBehaviour, IEquipment
      private void OnTriggerEnter(Collider other)
     {
         InterestPoint point = other.GetComponent<InterestPoint>();
-        if (point == null)
+        if (point == null || other.isTrigger)
             return;
 
         if(!_interestingPoints.Contains(point))
@@ -172,7 +172,7 @@ public class Baby : MonoBehaviour, IEquipment
     private void OnTriggerExit(Collider other)
     {
         InterestPoint point = other.GetComponent<InterestPoint>();
-        if (point == null)
+        if (point == null || other.isTrigger)
             return;
 
         if (_interestingPoints.Contains(point))

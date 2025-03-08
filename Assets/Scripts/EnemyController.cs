@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyController : MonoBehaviour
 {
@@ -24,7 +27,7 @@ public class EnemyController : MonoBehaviour
 
 
     private bool _isFollowing = false;
-    private Transform _player;
+    private List<Transform> _targets = new List<Transform>();
     private NavMeshAgent _navMeshAgent;
     private bool canAttack = true;
 
@@ -33,15 +36,6 @@ public class EnemyController : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.enabled = false;
 
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
-        {
-            _player = playerObject.transform;
-        }
-        else
-        {
-            Debug.LogError("No object with tag Player found");
-        }
         _health.OnHealthChanged.AddListener(HealthChange);
 
     }
@@ -54,35 +48,44 @@ public class EnemyController : MonoBehaviour
             OnHit?.Invoke();
         }
 
-        if (newHealth <= 0)
-        {
-            gameObject.SetActive(false);
-        }
     }
-    void Update()
+    void FixedUpdate()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, _player.position);
-        bool hasLineOfSight = CheckLineOfSight();
 
-        if (!_isFollowing && distanceToPlayer <= _detectionRange && hasLineOfSight)
+
+       
+
+        if(_targets.Count > 0)
         {
-            _isFollowing = true;
-            _navMeshAgent.enabled = true;
-        }
-        
-        if (_isFollowing)
-        {
-            if (canAttack && CheckIfTargetInRange())
+            _targets = _targets.OrderBy(
+               x => Vector2.Distance(this.transform.position, x.transform.position)
+              ).ToList();
+
+
+
+
+            bool hasLineOfSight = CheckLineOfSight();
+
+            if (!_isFollowing && hasLineOfSight)
             {
-                Attack();
+                _isFollowing = true;
+                _navMeshAgent.enabled = true;
             }
-            FollowPlayer();
+
+            if (_isFollowing)
+            {
+                if (canAttack && CheckIfTargetInRange())
+                {
+                    Attack();
+                }
+                FollowPlayer();
+            }
         }
     }
 
     private void FollowPlayer()
     {
-        _navMeshAgent.SetDestination(_player.position);
+        _navMeshAgent.SetDestination(_targets[0].position);
     }
 
     private void StopFollowing()
@@ -92,8 +95,8 @@ public class EnemyController : MonoBehaviour
 
     private bool CheckLineOfSight()
     {
-        Vector3 direction = (_player.position - transform.position).normalized;
-        float distance = Vector3.Distance(transform.position, _player.position);
+        Vector3 direction = (_targets[0].position - transform.position).normalized;
+        float distance = Vector3.Distance(transform.position, _targets[0].position);
 
         if (Physics.Raycast(transform.position, direction, out RaycastHit hit, distance, _obstacleMask))
         {
@@ -149,5 +152,24 @@ public class EnemyController : MonoBehaviour
         Vector3 attackPosition = transform.position + transform.TransformDirection(attackBoxOffset);
         Gizmos.matrix = Matrix4x4.TRS(attackPosition, transform.rotation, Vector3.one);
         Gizmos.DrawWireCube(Vector3.zero, attackBoxSize);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+       
+        if (other.isTrigger)
+            return;
+
+        if (!_targets.Contains(other.transform))
+            _targets.Add(other.transform);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+      //  if (other.isTrigger)
+      //      return;
+      //
+      //  if (_targets.Contains(other.transform))
+      //      _targets.Remove(other.transform);
     }
 }
