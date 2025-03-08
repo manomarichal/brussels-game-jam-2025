@@ -55,6 +55,22 @@ public class InputLogic : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        _health.OnHealthChanged.AddListener(HealthChange);
+    }
+
+    private void HealthChange(int newHealth,int dmgValue)
+    {
+        if(dmgValue > 0)
+        {
+            JuiceManager.Instance.TriggerShake(1f,dmgValue/20f);
+        }
+
+
+        if(newHealth == 0)
+        {
+            this.enabled = false;
+        }
     }
     private void OnEnable()
     {

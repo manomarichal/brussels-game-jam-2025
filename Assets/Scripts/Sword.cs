@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -12,6 +13,7 @@ public class Sword : MonoBehaviour, IEquipment
     [SerializeField] private LayerMask attackableLayers; 
     [SerializeField] private float attackCooldown = 1f;
 
+    [SerializeField] private GameObject _holdingVisual, _floorVisual;
     private bool canAttack = true;
 
     public void DropItem()
@@ -19,6 +21,19 @@ public class Sword : MonoBehaviour, IEquipment
         transform.parent = null;
         _rb.isKinematic = false;
 
+        SetVisual(false);
+    }
+
+    private void Start()
+    {
+        SetVisual(false);
+
+    }
+
+    private void SetVisual(bool holding)
+    {
+        _holdingVisual.SetActive(holding);
+        _floorVisual.SetActive(!holding);
     }
 
     public void EquipItem(Health carryer)
@@ -28,6 +43,9 @@ public class Sword : MonoBehaviour, IEquipment
         transform.localRotation = Quaternion.identity; 
 
         _rb.isKinematic = true;
+
+        SetVisual(true);
+
     }
 
     public void Throw(Vector3 position, Vector3 Direction)
@@ -36,6 +54,8 @@ public class Sword : MonoBehaviour, IEquipment
         transform.position = position + Direction.normalized*2;
         _rb.isKinematic = false;
         _rb.AddForce(Direction, ForceMode.Impulse);
+
+        SetVisual(false);
 
     }
 
@@ -46,6 +66,7 @@ public class Sword : MonoBehaviour, IEquipment
             if (canAttack)
             {
                 Attack();
+
             }
         }
     }
@@ -68,12 +89,19 @@ public class Sword : MonoBehaviour, IEquipment
         Collider[] hitObjects = GetTargetsInRange();
         foreach (Collider hit in hitObjects)
         {
+            if (hit.gameObject == transform.parent.gameObject)
+                return;
+
             Health health = hit.GetComponent<Health>();
             if (health != null)
             {
                 health.HealthDamaged(attackDamage);
+                Debug.Log("Sword did damage!");
             }
         }
+
+        Animator animator = transform.parent.GetComponent<Animator>();
+        animator.Play("HP_SwordSlash");
     }
 
     private void ResetAttack()

@@ -19,7 +19,7 @@ public class ObjectContainer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!InTheZone.Contains(other.gameObject))
+        if(!InTheZone.Contains(other.gameObject) && !other.isTrigger)
             InTheZone.Add(other.gameObject);
     }
 
