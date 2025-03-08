@@ -127,7 +127,7 @@ public class InputLogic : MonoBehaviour
 
 
         if (_characterController.isGrounded && _verticalMovement<0)
-            _verticalMovement = 0f;
+            _verticalMovement = -_gravity * Time.deltaTime;
         else { _verticalMovement += _gravity * Time.deltaTime; }
 
         Vector2 Movement = _move.ReadValue<Vector2>();
@@ -161,12 +161,18 @@ public class InputLogic : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        if(_characterController.isGrounded && _equipment == null)
+        if (IsGrounded() && _equipment == null)
         {
             _verticalMovement += _characterJumpHeight;
             Debug.Log("Jump");
-
         }
+    }
+
+    private bool IsGrounded()
+    {
+        float rayLength = 2f; // Adjust as needed
+        Vector3 rayOrigin = transform.position + Vector3.up * 0.1f; // Slightly above the feet
+        return Physics.Raycast(rayOrigin, Vector3.down, rayLength);
     }
 
     #endregion
