@@ -132,6 +132,7 @@ MonoBehaviour:
   _characterController: {fileID: 3418200841066500510}
   _characterSpeed: 5
   _characterJumpHeight: 5
+  _gravity: -9.81
   _camera: {fileID: 2998741920706207992}
   _sensitivity: 0.5
   _visionClamping: {x: -60, y: 30}
@@ -198,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1515716909505280642}
   characterController: {fileID: 3418200841066500510}
+  fader: {fileID: 0}
 --- !u!1 &6296261636506956490
 GameObject:
   m_ObjectHideFlags: 0

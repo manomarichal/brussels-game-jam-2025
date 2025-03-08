@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6289109869236030301}
   - component: {fileID: 2024438839542885673}
   - component: {fileID: 6926134926644515128}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6435693512566278244}
   - component: {fileID: 5565815235226566489}
   - component: {fileID: 8485853476768442290}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 5272216816364610983}
   - component: {fileID: 729164453982733638}
   - component: {fileID: 4226483623355472728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Holding
   m_TagString: Untagged
   m_Icon: {fileID: 0}

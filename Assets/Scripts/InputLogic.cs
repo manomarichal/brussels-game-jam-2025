@@ -21,6 +21,9 @@ public class InputLogic : MonoBehaviour
     [SerializeField] private float _characterJumpHeight = 5f;
 
 
+    [SerializeField] private float _gravity = -9.81f;
+    private float _verticalMovement = 0;
+
     [Header("Camera Settings")]
 
     [SerializeField] private Camera _camera;
@@ -121,11 +124,17 @@ public class InputLogic : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+
+        if (_characterController.isGrounded && _verticalMovement<0)
+            _verticalMovement = 0f;
+        else { _verticalMovement += _gravity * Time.deltaTime; }
+
         Vector2 Movement = _move.ReadValue<Vector2>();
         Vector2 Look = _look.ReadValue<Vector2>();
 
 
-        _characterController.SimpleMove(_characterSpeed * ((transform.forward*Movement.y + transform.right*Movement.x).normalized));
+        _characterController.Move((_characterSpeed * ((transform.forward*Movement.y + transform.right*Movement.x).normalized) + _verticalMovement*Vector3.up)*Time.deltaTime);
 
 
 
@@ -152,7 +161,12 @@ public class InputLogic : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        
+        if(_characterController.isGrounded && _equipment == null)
+        {
+            _verticalMovement += _characterJumpHeight;
+            Debug.Log("Jump");
+
+        }
     }
 
     #endregion

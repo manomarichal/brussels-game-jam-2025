@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Baby : MonoBehaviour, IEquipment
 {
@@ -20,10 +21,28 @@ public class Baby : MonoBehaviour, IEquipment
     private float _boredom = 0;
     [SerializeField] private float _patienceTime = 3f;
 
+    public UnityEvent OnBabyDeath;
+
+
+
+    [SerializeField] private Health _health;
+
     private bool _isStopped;
     private void Start()
     {
         _agent.destination = (transform.position);
+        _health.OnHealthChanged.AddListener(HealthChange);
+    }
+
+    private void HealthChange(int newHealth, int dmgValue)
+    {
+
+
+        if (newHealth <= 0)
+        {
+            OnBabyDeath?.Invoke();
+            gameObject.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
@@ -143,7 +162,7 @@ public class Baby : MonoBehaviour, IEquipment
      private void OnTriggerEnter(Collider other)
     {
         InterestPoint point = other.GetComponent<InterestPoint>();
-        if (point == null)
+        if (point == null || other.isTrigger)
             return;
 
         if(!_interestingPoints.Contains(point))
@@ -153,7 +172,7 @@ public class Baby : MonoBehaviour, IEquipment
     private void OnTriggerExit(Collider other)
     {
         InterestPoint point = other.GetComponent<InterestPoint>();
-        if (point == null)
+        if (point == null || other.isTrigger)
             return;
 
         if (_interestingPoints.Contains(point))

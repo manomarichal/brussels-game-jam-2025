@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3038635488268325513}
   - component: {fileID: 2762860949244580004}
   - component: {fileID: 2616131020231260737}
+  - component: {fileID: 3948262221580440468}
   m_Layer: 6
   m_Name: Baby
   m_TagString: Untagged
@@ -125,6 +126,10 @@ MonoBehaviour:
   _rb: {fileID: 3883286455413094781}
   _interestingPoints: []
   _patienceTime: 2
+  OnBabyDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  _health: {fileID: 3948262221580440468}
 --- !u!135 &2762860949244580004
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -168,6 +173,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3948262221580440468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2709042839820023829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c43f0af1d391c40992116ce139acaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2616131020231260737}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BabyHit
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  _maxHealth: 30
+  AttachmentPoint: {fileID: 0}
 --- !u!1 &7989872208920530107
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +217,7 @@ GameObject:
   - component: {fileID: 4590082521512325218}
   - component: {fileID: 7953662024803540292}
   - component: {fileID: 361801332666088199}
+  - component: {fileID: 7966589389569527898}
   m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
@@ -277,6 +315,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7966589389569527898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7989872208920530107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66ed0ae354dbf342a0de3338e745ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &9031953153531426238
 GameObject:
   m_ObjectHideFlags: 0
