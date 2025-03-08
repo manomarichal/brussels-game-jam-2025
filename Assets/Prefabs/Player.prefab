@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5200878268047295978}
   - component: {fileID: 3418200841066500510}
   - component: {fileID: 6860803772869754804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 1771867318393561082}
   - component: {fileID: 7757352573641820582}
   - component: {fileID: 421971898441001628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7518829684383131999}
   - component: {fileID: 8357631815224913006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HandPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
