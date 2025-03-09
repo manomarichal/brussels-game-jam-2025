@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,8 +16,8 @@ public class GameManager : MonoBehaviour
             if (_gameEnding != value)
             _gameEnding = value;
 
-            if(value != GameEndings.None)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (value != GameEndings.None)
+                StartCoroutine(GameEnd());
 
 
 
@@ -35,6 +36,23 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private IEnumerator GameEnd()
+    {
+        float timeSpeed = 0.2f;
+
+        while(timeSpeed < 0.9f)
+        {
+            Time.timeScale = timeSpeed;
+            timeSpeed = Mathf.Lerp(timeSpeed, 1f, 0.05f);
+            yield return null;
+        }
+        Time.timeScale = 1;
+
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 }
 
