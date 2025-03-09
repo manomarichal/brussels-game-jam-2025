@@ -6,6 +6,8 @@ public class WalkieTalkie : MonoBehaviour
     public Sprite RingingWalkie; // Sprite for ringing state
     public Sprite QuitWalkie;    // Sprite for quit state
 
+    [SerializeField] private Animator _animator;
+
     private AudioSource walkieSound;
     private Image walkieImage;
 
@@ -20,6 +22,7 @@ public class WalkieTalkie : MonoBehaviour
         if (walkieSound != null)
         {
             walkieSound.Play();
+            _animator.Play("PhoneRinging");
         }
         if (walkieImage != null && RingingWalkie != null)
         {
@@ -32,6 +35,8 @@ public class WalkieTalkie : MonoBehaviour
         if (walkieSound != null)
         {
             walkieSound.Stop();
+            _animator.Play("PhoneMute");
+
         }
         if (walkieImage != null && QuitWalkie != null)
         {
