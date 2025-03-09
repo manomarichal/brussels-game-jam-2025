@@ -32,7 +32,7 @@ public class RespawnAtCheckpoint : MonoBehaviour
     {
         StartCoroutine(RespawnSequence());
     }
-    
+
     private IEnumerator RespawnSequence()
     {
         Debug.Log("Respawning at : " + respawnPosition);
@@ -48,8 +48,5 @@ public class RespawnAtCheckpoint : MonoBehaviour
         // fade in and enable movement again
         yield return StartCoroutine(fader.Fade(0f, 0.5f));  
         characterController.enabled = true;
-
-        Debug.Log("Respawning complete!");
-
     }
 }

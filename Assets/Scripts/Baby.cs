@@ -172,6 +172,7 @@ public class Baby : MonoBehaviour, IEquipment
 
     public void Throw(Vector3 position, Vector3 Direction)
     {
+        _health.HealthDamaged(1,null);
         transform.SetParent(null);
         transform.position = position + Direction.normalized*2;
 

@@ -140,6 +140,7 @@ MonoBehaviour:
   _visionClamping: {x: -60, y: 30}
   footstepsSoundSource: {fileID: 9054239321297443666}
   jumpSoundSource: {fileID: 5319423980333986584}
+  throwingSound: {fileID: 0}
   _health: {fileID: 6860803772869754804}
   _throwTiming: {x: 1, y: 3}
   _throwStrength: 10
@@ -249,7 +250,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7bb575264bd7f9d4ea8290778887cc19, type: 3}
   m_Resource: {fileID: 8300000, guid: 7bb575264bd7f9d4ea8290778887cc19, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
