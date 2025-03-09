@@ -45,6 +45,7 @@ public enum GameEndings
     Abandonment,
     // player death or child left alone for too long
     Monsters,
+    Spikes,
     Success,
     None
 }

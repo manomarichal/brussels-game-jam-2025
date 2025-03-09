@@ -12,12 +12,16 @@ public class ButtonEvent : MonoBehaviour
     [SerializeField] private Material _inactiveMaterial;
     [SerializeField] private Material _activeMaterial;
     private MeshRenderer _meshRenderer;
+
+    private AudioSource _clickSound;
     
     private List<GameObject> _insideButtonTrigger = new List<GameObject>();
 
     public void Start()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
+        
+        _clickSound = GetComponent<AudioSource>();
     }
 
 
@@ -27,6 +31,7 @@ public class ButtonEvent : MonoBehaviour
             return;
 
         _onButtonActivate.Invoke();
+        _clickSound.Play();
 
         if(!_insideButtonTrigger.Contains(other.gameObject))
         _insideButtonTrigger.Add(other.gameObject);
@@ -46,6 +51,7 @@ public class ButtonEvent : MonoBehaviour
         if (_insideButtonTrigger.Count == 0)
         {
             _onButtonDeactivate.Invoke();
+            _clickSound.Play();
             _meshRenderer.material = _inactiveMaterial;
             transform.localPosition = new Vector3(0, 0.2f, 0);
         }
