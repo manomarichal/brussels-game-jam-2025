@@ -54,8 +54,9 @@ public class Health : InterestPoint
 
     public void HealthDamaged(int health, GameObject source)
     {
-        CharHealth-=health;
         LastDamage = source;
+
+        CharHealth -= health;
     }
 
     public void HealthHealed(int health)
