@@ -42,6 +42,8 @@ public class Baby : MonoBehaviour, IEquipment
     private float timeSinceDropped = 0f;
     
     private bool _isStopped;
+
+    private bool _isCoroutineRunning = false;
     private void Start()
     {
         _agent.destination = (transform.position);
@@ -184,7 +186,8 @@ public class Baby : MonoBehaviour, IEquipment
         if (transform.parent != null)
         {
 
-            StopAllCoroutines();
+            
+            if(!_isCoroutineRunning)
             StartCoroutine(SootheBaby());
             isDropped = false; // Mark as not dropped
         }
@@ -194,7 +197,7 @@ public class Baby : MonoBehaviour, IEquipment
     {
         Animator animator = transform.parent.GetComponent<Animator>();
 
-
+        _isCoroutineRunning = true;
 
 
         animator.SetBool("IsSoothing",true);
@@ -213,6 +216,9 @@ public class Baby : MonoBehaviour, IEquipment
         _cryingVolume.volume = 1;
         StopCrying?.Invoke();
         animator.SetBool("IsSoothing", false);
+
+        _isCoroutineRunning = false;
+
 
     }
 
