@@ -70,5 +70,10 @@ public class JuiceManager : MonoBehaviour
         maxShakeDuration = duration;
         _shakeMagnitude = magnitude;
     }
+
+    public void Shake()
+    {
+        TriggerShake(0.7f, 0.4f);
+    }
 }
 // blabla
