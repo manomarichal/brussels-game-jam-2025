@@ -66,4 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ae0a5fa8832304c854145df5ed2ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 999
+  attackDamage: 10
+  respawnAtCheckpoint: 1
+  enabled: 1

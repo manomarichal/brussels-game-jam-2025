@@ -15053,6 +15053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3fca12c1dcfcf4686f794769ff48b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameEnding: 4
 --- !u!114 &767292860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32789,6 +32790,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6356431190431867542, guid: e16cdfb2c322d9a468c4fdefef11a838, type: 3}
   m_PrefabInstance: {fileID: 1023169123}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1849527860 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 820926996513036980, guid: 12e0017b1cf2c3a489e5a2df398c36b2, type: 3}
+  m_PrefabInstance: {fileID: 1317007756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e71a23d84bde1b4ca93c26fdf0d953a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1852181036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37643,6 +37655,66 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: _timeBeforeAbandonment
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StopCrying.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StartCrying.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StopCrying.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StartCrying.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StopCrying.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1849527860}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StartCrying.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1849527860}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StopCrying.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StartCrying.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StopCrying.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitRinging
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StartCrying.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StopCrying.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WalkieTalkie, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StartCrying.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WalkieTalkie, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StopCrying.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
+      propertyPath: StartCrying.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6696362940779384419, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.97
@@ -40440,7 +40512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1515716909505280642, guid: 0028835ab8a2f254990599dab85d5b9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -52
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1515716909505280642, guid: 0028835ab8a2f254990599dab85d5b9b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40448,7 +40520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1515716909505280642, guid: 0028835ab8a2f254990599dab85d5b9b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1515716909505280642, guid: 0028835ab8a2f254990599dab85d5b9b, type: 3}
       propertyPath: m_LocalRotation.w

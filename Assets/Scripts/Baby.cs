@@ -51,7 +51,6 @@ public class Baby : MonoBehaviour, IEquipment
         if (isDropped)
         {
             timeSinceDropped += Time.deltaTime;
-
             if (timeSinceDropped > _timeBeforeCrying)
             {
                 StartCrying.Invoke();
@@ -67,12 +66,12 @@ public class Baby : MonoBehaviour, IEquipment
 
     private void HealthChange(int newHealth, int dmgValue)
     {
-
-
         if (newHealth <= 0)
         {
             OnBabyDeath?.Invoke();
             gameObject.SetActive(false);
+
+            Debug.Log("Layer: " + LayerMask.LayerToName(_health.LastDamage.layer));
 
             if(_health.LastDamage.layer == LayerMask.NameToLayer("Danger"))
             {
