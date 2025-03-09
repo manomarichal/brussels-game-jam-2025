@@ -19,7 +19,7 @@ public class DamageOnEnter : MonoBehaviour
 
             if (health != null)
             {
-                health.HealthDamaged(attackDamage);
+                health.HealthDamaged(attackDamage,gameObject);
             }
 
             if (respawnAtCheckpoint)
