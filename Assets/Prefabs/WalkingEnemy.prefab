@@ -5125,6 +5125,7 @@ MonoBehaviour:
         m_CallState: 2
   _maxHealth: 15
   AttachmentPoint: {fileID: 0}
+  LastDamage: {fileID: 0}
 --- !u!114 &3320688307549954825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5137,7 +5138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57e6992f4f89f34b901248ca96d99b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionRange: 20
+  _detectionRange: 10
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 1
@@ -5345,7 +5346,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 20
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8020368474282824059
 GameObject:

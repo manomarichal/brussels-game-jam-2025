@@ -16,6 +16,8 @@ public class Sword : MonoBehaviour, IEquipment
     [SerializeField] private GameObject _holdingVisual, _floorVisual;
     private bool canAttack = true;
 
+    private AudioSource attackSound;
+
     public void DropItem()
     {
         transform.position += transform.forward * 2;
@@ -31,7 +33,7 @@ public class Sword : MonoBehaviour, IEquipment
     private void Start()
     {
         SetVisual(false);
-
+        attackSound = GetComponent<AudioSource>();
     }
 
     private void SetVisual(bool holding)
@@ -70,7 +72,7 @@ public class Sword : MonoBehaviour, IEquipment
             if (canAttack)
             {
                 Attack();
-
+                if (attackSound != null) attackSound.Play();
             }
         }
     }
