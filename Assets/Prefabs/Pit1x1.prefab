@@ -1399,6 +1399,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1520130438845983562}
     m_Modifications:
+    - target: {fileID: 1294533788831163228, guid: 41d68e6934922af44ada8e250a335f09, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3653628485254507385, guid: 41d68e6934922af44ada8e250a335f09, type: 3}
       propertyPath: m_Name
       value: StandardCube
@@ -1442,6 +1446,10 @@ PrefabInstance:
     - target: {fileID: 4564209695684804582, guid: 41d68e6934922af44ada8e250a335f09, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345256917925476679, guid: 41d68e6934922af44ada8e250a335f09, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
