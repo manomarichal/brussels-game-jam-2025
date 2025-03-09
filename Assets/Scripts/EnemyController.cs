@@ -133,7 +133,7 @@ public class EnemyController : MonoBehaviour
             Health health = hit.GetComponent<Health>();
             if (health != null)
             {
-                health.HealthDamaged(attackDamage);
+                health.HealthDamaged(attackDamage, gameObject);
             }
         }
         OnAttack?.Invoke();

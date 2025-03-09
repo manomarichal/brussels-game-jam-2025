@@ -27,6 +27,8 @@ public class Baby : MonoBehaviour, IEquipment
 
     [SerializeField] private Health _health;
 
+    private GameEndings _currentGameEnding;
+
     private bool _isStopped;
     private void Start()
     {

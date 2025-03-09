@@ -102,7 +102,7 @@ public class Sword : MonoBehaviour, IEquipment
             Health health = hit.GetComponent<Health>();
             if (health != null)
             {
-                health.HealthDamaged(attackDamage);
+                health.HealthDamaged(attackDamage,gameObject);
                 Debug.Log("Sword did damage!");
             }
         }
