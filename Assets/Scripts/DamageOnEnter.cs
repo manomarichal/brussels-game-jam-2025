@@ -25,7 +25,8 @@ public class DamageOnEnter : MonoBehaviour
             if (respawnAtCheckpoint)
             {
                 var respawnAtCheckpoint = other.GetComponent<RespawnAtCheckpoint>();
-                respawnAtCheckpoint.Respawn();
+                if(respawnAtCheckpoint != null) 
+                     respawnAtCheckpoint.Respawn();
             }
     }
 }

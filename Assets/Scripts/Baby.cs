@@ -11,7 +11,7 @@ public class Baby : MonoBehaviour, IEquipment
 {
 
 
-
+    [SerializeField] private InputLogic _player;
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Rigidbody _rb;
 
@@ -34,6 +34,7 @@ public class Baby : MonoBehaviour, IEquipment
     {
         _agent.destination = (transform.position);
         _health.OnHealthChanged.AddListener(HealthChange);
+
     }
 
     private void HealthChange(int newHealth, int dmgValue)
@@ -44,6 +45,18 @@ public class Baby : MonoBehaviour, IEquipment
         {
             OnBabyDeath?.Invoke();
             gameObject.SetActive(false);
+
+            if(_health.LastDamage.layer == LayerMask.NameToLayer("Danger"))
+            {
+                GameManager.Instance.GameEnding = GameEndings.Burning;
+                return;
+            }
+            if (_health.LastDamage.layer == LayerMask.NameToLayer("Enemies"))
+            {
+                GameManager.Instance.GameEnding = GameEndings.Monsters;
+                return;
+
+            }
         }
     }
 
