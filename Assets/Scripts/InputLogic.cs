@@ -185,7 +185,12 @@ public class InputLogic : MonoBehaviour
 
     }
 
-
+    public void Die()
+    {
+        GameManager.Instance.GameEnding = GameEndings.Abandonment;
+        Debug.Log("abandonment ending");
+        return;
+    }
     private void Jump(InputAction.CallbackContext context)
     {
         if (IsGrounded() && _equipment == null)
