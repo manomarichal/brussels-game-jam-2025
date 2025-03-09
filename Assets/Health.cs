@@ -21,7 +21,6 @@ public class Health : InterestPoint
                 return;
 
 
-            OnHealthChanged?.Invoke(value,_charHealth-value);
             _charHealth = value;
 
             if (_charHealth <= 0)
@@ -30,6 +29,9 @@ public class Health : InterestPoint
                 _charHealth = 0;
                 OnDeath?.Invoke();
             }
+
+
+            OnHealthChanged?.Invoke(value, _charHealth - value);
 
         }
     }

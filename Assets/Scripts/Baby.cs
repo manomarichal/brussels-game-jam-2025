@@ -70,10 +70,10 @@ public class Baby : MonoBehaviour, IEquipment
         {
             OnBabyDeath?.Invoke();
 
-            if (_health.LastDamage == null)
+            if (_health.LastDamage == null || _health.LastDamage.layer == LayerMask.NameToLayer("Spikes"))
             {
-                GameManager.Instance.GameEnding = GameEndings.Burning;
-                Debug.Log("burning ending");
+                GameManager.Instance.GameEnding = GameEndings.Spikes;
+                Debug.Log("spike ending");
                 return;
             }
             else if(_health.LastDamage.layer == LayerMask.NameToLayer("Danger"))
