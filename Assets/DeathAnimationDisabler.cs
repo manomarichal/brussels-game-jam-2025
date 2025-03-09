@@ -9,7 +9,9 @@ public class DeathAnimationDisabler : MonoBehaviour
     {
         foreach (EndingContainer container in _endingContainers)
         {
-            container.EnableIfEnding(GameManager.Instance.GameEnding);
+            container.EnableIfEnding(
+                GameManager.Instance.GameEnding
+                );
         }
     }
 

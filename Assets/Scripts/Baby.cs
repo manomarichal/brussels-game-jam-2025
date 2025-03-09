@@ -35,7 +35,7 @@ public class Baby : MonoBehaviour, IEquipment
 
     private GameEndings _currentGameEnding;
 
-    private bool isDropped = false;
+    private bool isDropped = true;
     private float timeSinceDropped = 0f;
     
     private bool _isStopped;
@@ -70,10 +70,10 @@ public class Baby : MonoBehaviour, IEquipment
         {
             OnBabyDeath?.Invoke();
 
-            if (_health.LastDamage == null)
+            if (_health.LastDamage == null || _health.LastDamage.layer == LayerMask.NameToLayer("Spikes"))
             {
                 GameManager.Instance.GameEnding = GameEndings.Spikes;
-                Debug.Log("burning ending");
+                Debug.Log("spike ending");
                 return;
             }
             else if(_health.LastDamage.layer == LayerMask.NameToLayer("Danger"))

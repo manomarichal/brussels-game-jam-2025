@@ -1389,6 +1389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathBox
       objectReference: {fileID: 0}
+    - target: {fileID: 4213065921215956574, guid: 5f1332c73ab98014695b0d4ffea91539, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
