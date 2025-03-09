@@ -72,7 +72,9 @@ public class Sword : MonoBehaviour, IEquipment
             if (canAttack)
             {
                 Attack();
-                if (attackSound != null) attackSound.Play();
+                if (attackSound != null) {
+                    attackSound.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+                    attackSound.Play(); }
             }
         }
     }

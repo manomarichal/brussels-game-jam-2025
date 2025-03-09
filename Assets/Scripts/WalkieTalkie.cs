@@ -21,6 +21,8 @@ public class WalkieTalkie : MonoBehaviour
     {
         if (walkieSound != null)
         {
+            walkieSound.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+
             walkieSound.Play();
             _animator.Play("PhoneRinging");
         }

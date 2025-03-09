@@ -38,6 +38,8 @@ public class InputLogic : MonoBehaviour
 
     public AudioSource footstepsSoundSource;
     public AudioSource jumpSoundSource;
+    public SoundPlayer throwingSound;
+
 
     [Header("Other")]
 
@@ -145,6 +147,8 @@ public class InputLogic : MonoBehaviour
         {
             if (!footstepsSoundSource.isPlaying && !jumpSoundSource.isPlaying)
             {
+                footstepsSoundSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+
                 footstepsSoundSource.Play();
             }
         }
@@ -157,7 +161,10 @@ public class InputLogic : MonoBehaviour
         {
             jumpSound = false;
             footstepsSoundSource.Stop(); // Stop footsteps during jump
+            jumpSoundSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+
             jumpSoundSource.Play();
+
         }
 
 
@@ -249,6 +256,7 @@ public class InputLogic : MonoBehaviour
 
         _throwTimer = Mathf.Clamp(_throwTimer, _throwTiming.x, _throwTiming.y);
 
+        throwingSound.PlaySound();
 
         _equipment.Throw(_camera.transform.position, _camera.transform.forward * _throwTimer * _throwStrength);
         _equipment = null;

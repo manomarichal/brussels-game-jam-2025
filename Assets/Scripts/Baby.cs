@@ -31,6 +31,9 @@ public class Baby : MonoBehaviour, IEquipment
 
     public UnityEvent StopCrying;
 
+
+    [SerializeField] private AudioSource _cryingVolume;
+
     [SerializeField] private Health _health;
 
     private GameEndings _currentGameEnding;
@@ -183,7 +186,6 @@ public class Baby : MonoBehaviour, IEquipment
 
             StopAllCoroutines();
             StartCoroutine(SootheBaby());
-            StopCrying.Invoke(); // Invoke signal when item is picked up
             isDropped = false; // Mark as not dropped
         }
     }
@@ -192,9 +194,24 @@ public class Baby : MonoBehaviour, IEquipment
     {
         Animator animator = transform.parent.GetComponent<Animator>();
 
+
+
+
         animator.SetBool("IsSoothing",true);
 
-        yield return new WaitForSeconds(3f);
+        float passedTime = 0f;
+
+        float volume = _cryingVolume.volume;
+
+        while(passedTime < 3)
+        {
+            _cryingVolume.volume = Mathf.Lerp(volume,0f,passedTime/3f);
+            passedTime += Time.deltaTime;
+            yield return null;
+        }
+        _cryingVolume.Stop();
+        _cryingVolume.volume = 1;
+        StopCrying?.Invoke();
         animator.SetBool("IsSoothing", false);
 
     }
