@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    private GameEndings _gameEnding;
+    private GameEndings _gameEnding = GameEndings.None;
 
 
     public GameEndings GameEnding

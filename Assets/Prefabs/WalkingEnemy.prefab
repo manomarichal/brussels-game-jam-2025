@@ -5142,8 +5142,8 @@ MonoBehaviour:
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 1
-  attackBoxSize: {x: 1.5, y: 1.5, z: 1.5}
-  attackBoxOffset: {x: 0, y: 0, z: 1}
+  attackBoxSize: {x: 1.5, y: 2.73, z: 1.5}
+  attackBoxOffset: {x: 0, y: -0.08, z: 1}
   attackDamage: 10
   attackableLayers:
     serializedVersion: 2

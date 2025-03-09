@@ -1126,6 +1126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 999124345}
   - component: {fileID: 999124344}
+  - component: {fileID: 999124346}
   m_Layer: 0
   m_Name: BabyDeathScene
   m_TagString: Untagged
@@ -1185,6 +1186,25 @@ Transform:
   - {fileID: 494306513}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &999124346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999124343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9be02354fb4fce4ab62561947677851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _endingContainers:
+  - ThisEnding: 0
+    _gameObjects:
+    - {fileID: 2842061811784419119}
+    - {fileID: 1653205709}
+  - ThisEnding: 4
+    _gameObjects: []
 --- !u!4 &1043681194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2865033054429998479, guid: d924a3048980a5e49b5187ef9017e4e3, type: 3}
