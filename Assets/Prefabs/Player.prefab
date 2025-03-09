@@ -189,6 +189,7 @@ MonoBehaviour:
       m_Calls: []
   _maxHealth: 20
   AttachmentPoint: {fileID: 6993039445561069293}
+  LastDamage: {fileID: 0}
 --- !u!114 &6722889515592914893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,8 +247,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2449385c869301f4595471fa9f8d9ed2, type: 3}
-  m_Resource: {fileID: 8300000, guid: 2449385c869301f4595471fa9f8d9ed2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7bb575264bd7f9d4ea8290778887cc19, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7bb575264bd7f9d4ea8290778887cc19, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
