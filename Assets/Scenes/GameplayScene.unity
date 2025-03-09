@@ -38518,7 +38518,7 @@ PrefabInstance:
       objectReference: {fileID: 1849527862}
     - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
       propertyPath: _timeBeforeAbandonment
-      value: 45
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3038635488268325513, guid: 73c004c00c0e1214daa433e2b69a0bfc, type: 3}
       propertyPath: StopCrying.m_PersistentCalls.m_Calls.Array.size
