@@ -69,11 +69,14 @@ public class Baby : MonoBehaviour, IEquipment
         if (newHealth <= 0)
         {
             OnBabyDeath?.Invoke();
-            gameObject.SetActive(false);
 
-            Debug.Log("Layer: " + LayerMask.LayerToName(_health.LastDamage.layer));
-
-            if(_health.LastDamage.layer == LayerMask.NameToLayer("Danger"))
+            if (_health.LastDamage == null)
+            {
+                GameManager.Instance.GameEnding = GameEndings.Burning;
+                Debug.Log("burning ending");
+                return;
+            }
+            else if(_health.LastDamage.layer == LayerMask.NameToLayer("Danger"))
             {
                 GameManager.Instance.GameEnding = GameEndings.Burning;
                 Debug.Log("burning ending");
@@ -83,7 +86,6 @@ public class Baby : MonoBehaviour, IEquipment
             {
                 GameManager.Instance.GameEnding = GameEndings.Monsters;
                 Debug.Log("enemies ending");
-
                 return;
 
             }
