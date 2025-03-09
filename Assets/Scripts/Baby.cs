@@ -49,11 +49,14 @@ public class Baby : MonoBehaviour, IEquipment
             if(_health.LastDamage.layer == LayerMask.NameToLayer("Danger"))
             {
                 GameManager.Instance.GameEnding = GameEndings.Burning;
+                Debug.Log("burning ending");
                 return;
             }
-            if (_health.LastDamage.layer == LayerMask.NameToLayer("Enemies"))
+            else if (_health.LastDamage.layer == LayerMask.NameToLayer("Enemies"))
             {
                 GameManager.Instance.GameEnding = GameEndings.Monsters;
+                Debug.Log("enemies ending");
+
                 return;
 
             }
