@@ -21,20 +21,48 @@ public class Baby : MonoBehaviour, IEquipment
     private float _boredom = 0;
     [SerializeField] private float _patienceTime = 3f;
 
+    [SerializeField] private float _timeBeforeCrying = 15f;
+
+    [SerializeField] private float _timeBeforeAbandonment = 45f;
+
     public UnityEvent OnBabyDeath;
 
+    public UnityEvent StartCrying;
 
+    public UnityEvent StopCrying;
 
     [SerializeField] private Health _health;
 
     private GameEndings _currentGameEnding;
 
+    private bool isDropped = true;
+    private float timeSinceDropped = 0f;
+    
     private bool _isStopped;
     private void Start()
     {
         _agent.destination = (transform.position);
         _health.OnHealthChanged.AddListener(HealthChange);
 
+    }
+    
+    void Update()
+    {
+        if (isDropped)
+        {
+            timeSinceDropped += Time.deltaTime;
+
+            if (timeSinceDropped > _timeBeforeCrying)
+            {
+                StartCrying.Invoke();
+                isDropped = false; // Ensure signal is triggered only once
+            }
+
+            if (timeSinceDropped > _timeBeforeAbandonment)
+            {
+                GameManager.Instance.GameEnding = GameEndings.Abandonment;
+            }
+        }
     }
 
     private void HealthChange(int newHealth, int dmgValue)
@@ -119,24 +147,24 @@ public class Baby : MonoBehaviour, IEquipment
         _agent.enabled = true;
         _rb.isKinematic = false;
 
+        timeSinceDropped = 0f; // Reset the timer when dropped
+        isDropped = true; // Mark as dropped
     }
 
-    public void EquipItem(Health carryer)
+    public void EquipItem(Health carrier)
     {
-        transform.SetParent(carryer.AttachmentPoint.transform,false);
+        transform.SetParent(carrier.AttachmentPoint.transform, false);
         transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity; 
+        transform.localRotation = Quaternion.identity;
 
         _agent.enabled = false;
         _rb.isKinematic = true;
-
     }
 
     public void Throw(Vector3 position, Vector3 Direction)
     {
         transform.SetParent(null);
         transform.position = position + Direction.normalized*2;
-
 
         _rb.isKinematic = false;
 
@@ -151,7 +179,8 @@ public class Baby : MonoBehaviour, IEquipment
 
             StopAllCoroutines();
             StartCoroutine(SootheBaby());
-
+            StopCrying.Invoke(); // Invoke signal when item is picked up
+            isDropped = false; // Mark as not dropped
         }
     }
 
