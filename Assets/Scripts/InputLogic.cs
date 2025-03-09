@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
+
 [RequireComponent(typeof(CharacterController),typeof(Health))]
 public class InputLogic : MonoBehaviour
 {
@@ -30,10 +31,13 @@ public class InputLogic : MonoBehaviour
 
     private float _angle = 0;
 
-
-
     [SerializeField] private float _sensitivity = 1.2f;
     [SerializeField] private Vector2 _visionClamping = new Vector2(-60.0f,30.0f);
+
+    [Header("Sound")]
+
+    public AudioSource footstepsSoundSource;
+    public AudioSource jumpSoundSource;
 
     [Header("Other")]
 
@@ -41,6 +45,8 @@ public class InputLogic : MonoBehaviour
     [SerializeField] private IEquipment _equipment;
 
     private float _throwTimer = 0;
+
+    private bool jumpSound = false;
     [SerializeField] private Vector2 _throwTiming = new Vector2(1f,5f);
     [SerializeField] private float _throwStrength = 10f;
 
@@ -130,8 +136,29 @@ public class InputLogic : MonoBehaviour
             _verticalMovement = -_gravity * Time.deltaTime;
         else { _verticalMovement += _gravity * Time.deltaTime; }
 
+
         Vector2 Movement = _move.ReadValue<Vector2>();
         Vector2 Look = _look.ReadValue<Vector2>();
+
+
+        if (Movement.magnitude > 0)
+        {
+            if (!footstepsSoundSource.isPlaying && !jumpSoundSource.isPlaying)
+            {
+                footstepsSoundSource.Play();
+            }
+        }
+        else
+        {
+            footstepsSoundSource.Stop();
+        }
+
+        if (jumpSound)
+        {
+            jumpSound = false;
+            footstepsSoundSource.Stop(); // Stop footsteps during jump
+            jumpSoundSource.Play();
+        }
 
 
         _characterController.Move((_characterSpeed * ((transform.forward*Movement.y + transform.right*Movement.x).normalized) + _verticalMovement*Vector3.up)*Time.deltaTime);
@@ -164,6 +191,7 @@ public class InputLogic : MonoBehaviour
         if (IsGrounded() && _equipment == null)
         {
             _verticalMovement += _characterJumpHeight;
+            jumpSound = true;
             Debug.Log("Jump");
         }
     }
