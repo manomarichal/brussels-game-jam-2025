@@ -38,6 +38,9 @@ public class Health : InterestPoint
 
     public GameObject AttachmentPoint;
 
+    public GameObject LastDamage;
+
+
     private int _charHealth;
 
     private bool _isDead = false;
@@ -47,9 +50,10 @@ public class Health : InterestPoint
         _charHealth = _maxHealth;
     }
 
-    public void HealthDamaged(int health)
+    public void HealthDamaged(int health, GameObject source)
     {
         CharHealth-=health;
+        LastDamage = source;
     }
 
     public void HealthHealed(int health)
