@@ -35,7 +35,7 @@ public class Baby : MonoBehaviour, IEquipment
 
     private GameEndings _currentGameEnding;
 
-    private bool isDropped = true;
+    private bool isDropped = false;
     private float timeSinceDropped = 0f;
     
     private bool _isStopped;
@@ -72,7 +72,7 @@ public class Baby : MonoBehaviour, IEquipment
 
             if (_health.LastDamage == null)
             {
-                GameManager.Instance.GameEnding = GameEndings.Burning;
+                GameManager.Instance.GameEnding = GameEndings.Spikes;
                 Debug.Log("burning ending");
                 return;
             }
